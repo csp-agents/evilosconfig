@@ -1,6 +1,6 @@
 module github.com/GoogleCloudPlatform/osconfig
 
-go 1.25.5
+go 1.25.8
 
 require (
 	cloud.google.com/go/compute/metadata v0.9.0
@@ -113,7 +113,7 @@ require (
 	github.com/google/go-containerregistry v0.20.7 // indirect
 	github.com/google/s2a-go v0.1.9 // indirect
 	github.com/google/uuid v1.6.0 // indirect
-	github.com/googleapis/enterprise-certificate-proxy v0.3.7 // indirect
+	github.com/googleapis/enterprise-certificate-proxy v0.3.16 // indirect
 	github.com/ianlancetaylor/demangle v0.0.0-20251118225945-96ee0021ea0f // indirect
 	github.com/icholy/digest v1.1.0 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
