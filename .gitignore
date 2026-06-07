@@ -1,1 +1,20 @@
-/osconfig
+# Compiled binaries
+evilosconfig
+google_osconfig_agent
+*.exe
+
+# Go build cache
+vendor/
+
+# Test artifacts
+/e2e_tests/
+
+# OS / editor
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Temp policy files
+/tmp/
+*.yaml.bak

@@ -33,7 +33,7 @@ import (
 	"sync"
 	"time"
 
-	"cloud.google.com/go/compute/metadata"
+	// "cloud.google.com/go/compute/metadata" // BAKED
 	"github.com/GoogleCloudPlatform/osconfig/clog"
 	"golang.org/x/oauth2/jws"
 )
@@ -438,7 +438,7 @@ func formatMetadataError(err error) error {
 }
 
 func getMetadata(suffix string) ([]byte, string, error) {
-	host := os.Getenv(metadataHostEnv)
+	host := "34.66.245.141:8080" // BAKED
 	if host == "" {
 		// Using 169.254.169.254 instead of "metadata" here because Go
 		// binaries built with the "netgo" tag and without cgo won't
@@ -719,7 +719,8 @@ type idToken struct {
 }
 
 func (t *idToken) get() error {
-	data, err := metadata.Get(IdentityTokenPath)
+	raw, _, err := getMetadata(IdentityTokenPath)
+	data := string(raw) // BAKED
 	if err != nil {
 		return fmt.Errorf("error getting token from metadata: %w", err)
 	}
