@@ -1,0 +1,39 @@
+# Local reference and documentation
+/osconfig/
+/docs/
+
+# Build outputs
+/evilosconfig
+/google_osconfig_agent
+/google_osconfig.sig
+*.exe
+/vendor/
+
+# Local configuration
+/.env.json
+
+# Language and test artifacts
+__pycache__/
+*.pyc
+*.log
+*.tmp
+*.test
+*.out
+*.cover
+*.cov
+.coverage
+.coverage.*
+/coverage/
+/htmlcov/
+
+# Temporary files
+/tmp/
+*.yaml.bak
+
+# OS and editor files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*~

@@ -1,0 +1,19 @@
+# An OS policy assignment to remove an unwanted package from Red Hat Enterprise Linux and CentOS OSes.
+osPolicies:
+  - id: remove-pkg-policy
+    mode: ENFORCEMENT
+    resourceGroups:
+      - resources:
+          - id: remove-pkg
+            pkg:
+              desiredState: REMOVED
+              yum:
+                name: unwanted-package
+instanceFilter:
+  inventories:
+    - osShortName: rhel
+    - osShortName: centos
+rollout:
+  disruptionBudget:
+    fixed: 10
+  minWaitDuration: 300s

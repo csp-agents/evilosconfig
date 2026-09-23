@@ -1,0 +1,19 @@
+# This file enables automatic assignment of PR reviewers.
+# See the OWNERS docs at https://go.k8s.io/owners
+
+labels:
+- examples
+approvers:
+  - burov
+  - dowgird
+  - Gulio
+  - michaljankowiak
+  - paulinakania
+  - savijatv
+reviewers:
+  - burov
+  - dowgird
+  - Gulio
+  - michaljankowiak
+  - paulinakania
+  - savijatv

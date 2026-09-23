@@ -1,0 +1,23 @@
+# An OS policy to ensure sshd is installed and running on windows
+id: win-ensure-openssh-policy
+mode: ENFORCEMENT
+resourceGroups:
+  - resources:
+      id: ensure-ssh
+      exec:
+        validate:
+          interpreter: POWERSHELL
+          # An exit code 100 to indicates that exec resource is already in desired state. 
+          # In this scenario, the `enforce` step will not be run.
+          # Otherwise return an exit code of 101 to indicate that exec resource is not in
+          # desired state. In this scenario, the `enforce` step will be run.
+          script: |
+            $service = Get-Service -Name 'sshd'
+            if ($service.Status -eq 'Running') {exit 100} else {exit 101}
+        enforce:
+          interpreter: POWERSHELL
+          script: |
+            Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+            Set-Service -Name sshd -StartupType 'Automatic'
+            Start-Service sshd
+            exit 100
